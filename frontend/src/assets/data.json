@@ -1,0 +1,37 @@
+[
+    {
+        "ID":"empName",
+        "label":"First Name",
+        "Type" : "input"
+    },
+    {
+        "ID":"empGender",
+        "label":"Gender",
+        "Type" : "radio",
+        "Value":"Male,Female"
+
+    },
+    {
+        "ID":"empDesignation",
+        "label":"Designation",
+        "Type" : "input"
+    },
+    {
+        "ID":"empMobile",
+        "label":"Mobile",
+        "Type" : "input"
+    },
+    {
+        "ID":"empAddress",
+        "label":"Address",
+        "Type" : "input"
+    },   
+    {
+        "ID":"empState",
+        "label":"State",
+        "Type" : "select",
+        "Value":"Delhi,Mumbai,Uttar Pradesh"
+
+    }
+   
+]

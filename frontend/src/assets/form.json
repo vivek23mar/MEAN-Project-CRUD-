@@ -1,0 +1,24 @@
+{
+    "fields":[
+       {
+          "inputType":"text",
+          "fieldTitle":"Name",
+          "fieldName":"empName"
+       },
+       {
+          "inputType":"text",
+          "fieldTitle":"Designation",
+          "fieldName":"empDesignation"
+       },
+        {
+          "inputType":"text",
+          "fieldTitle":"Address",
+          "fieldName":"empAddress"
+       },
+       {
+          "inputType":"text",
+          "fieldTitle":"Mobile",
+          "fieldName":"empMobile"
+       }
+    ]
+ }

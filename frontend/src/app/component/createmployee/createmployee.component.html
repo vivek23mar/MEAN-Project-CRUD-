@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="card col-5 mr-2">
+    <div class="card-header">
+      Register New Employee
+    </div>
+    <div class="card-body">
+      <form *ngIf="createEmployee" [formGroup]="createEmployee" (ngSubmit)="registerEmployee()">
+
+
+        <div class="mb-3">
+          <label class="form-label">Employee Name</label>
+          <input type="text" class="form-control" formControlName="empName">
+        </div>
+        <div class="radio-inline mb-3">
+          <label class="radio-inline">Gender : </label><br>
+          <input type="radio" formControlName="empGender" value="Male"> Male
+          <input type="radio" formControlName="empGender" value="Female"> Female
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Designation</label>
+          <input type="text" class="form-control" formControlName="empDesignation">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Address</label>
+          <input type="text" class="form-control" formControlName="empAddress">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Contact Number</label>
+          <input type="text" class="form-control" formControlName="empMobile">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Upload Photo</label>
+          <input type="file" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" 
+          class="btn btn-primary" 
+          [disabled]="!createEmployee.valid"
+          (click)="updateEmployee()">Update
+        </button>
+
+      </form>
+    </div>
+  </div>
+  
+  <div class="card col-5 ml-2">
+    <div class="card-header">
+      Register New Employee Using Dynamic Controller
+    </div>
+    <div class="card-body">
+      <form *ngIf="dynamicEdit " [formGroup]="dynamicEmployee" (ngSubmit)="dynamicSubmit()">
+        <div *ngFor="let control of dynamicFormArray">
+
+          <div [ngSwitch]="control.Type">
+            <div *ngSwitchCase="'input'">
+              <div class="mb-3">
+                <label>{{control.label}}</label>
+                <input type="text" class="form-control" [formControlName]="control.ID">
+              </div>  
+            </div>
+
+            <div *ngSwitchCase="'radio'">
+              <div class="mb-3">
+                {{control.label}}
+                <label class="radio" *ngFor="let val of control.Value.split(',')">
+                  <input type="radio" name="{{control.ID}}" value="{{val}}" [formControlName]="control.ID">{{val}}
+                </label>
+              </div> 
+
+            </div>
+
+            <div *ngSwitchCase="'select'">
+              <div class="mb-3">
+                <label>{{control.label}}</label>
+                <select class="form-control" [formControlName]="control.ID">
+                  <option value="-1">Select</option>
+                  <option *ngFor="let val of control.Value.split(',')" value="{{val}}">{{val}}</option>
+                </select>
+              </div> 
+            </div>
+
+          </div>
+        </div>
+        <button type="submit"class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-danger"
+          (click)="dynamicupdateEmployee()"
+          [disabled]="!dynamicEmployee.valid">Update
+        </button>
+      
+      </form>
+    </div>
+  </div> 
+</div>

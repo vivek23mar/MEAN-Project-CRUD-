@@ -1,0 +1,32 @@
+<table class="table table-striped" *ngIf="empdata">
+  <thead>
+    <tr>
+      <th scope="col">S.No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Designation</th>
+      <th scope="col">Address</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Gender</th>
+      <th scope="col">State</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of empdata; let i=index">
+      <td>{{i+1}}</td>
+      <td>{{data.empName}}</td>
+      <td>{{data.empDesignation}}</td>
+      <td>{{data.empAddress}}</td>
+      <td>{{data.empMobile}}</td>
+      <td>{{data.empGender}}</td>
+      <td>{{data.empState}}</td>
+
+      <td>
+        <button type="button" class="btn btn-success btn-sm" (click)="editEmployee(data._id)">Edit</button>&nbsp;
+        <button type="button" class="btn btn-danger btn-sm" (click)="deleteEmployee(data._id)">Delete</button>
+      
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
